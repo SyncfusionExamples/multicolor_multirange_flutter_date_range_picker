@@ -2,25 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 void main() {
-  return runApp(MultiColorMultiRange());
+  return runApp(const MultiColorMultiRange());
 }
 
 class MultiColorMultiRange extends StatelessWidget {
+  const MultiColorMultiRange({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: MyApp());
+    return const MaterialApp(home: MyApp());
   }
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
   MyAppState createState() => MyAppState();
 }
 
 class MyAppState extends State<MyApp> {
-  DateRangePickerSelectionMode _selectionMode =
+  final DateRangePickerSelectionMode _selectionMode =
       DateRangePickerSelectionMode.multiRange;
-  DateRangePickerController _controller = DateRangePickerController();
+  final DateRangePickerController _controller = DateRangePickerController();
 
   @override
   void initState() {
@@ -29,10 +33,10 @@ class MyAppState extends State<MyApp> {
     _controller.selectedRange =
         PickerDateRange(DateTime(2021, 9, 7), DateTime(2021, 9, 11));
     _controller.selectedRanges = <PickerDateRange>[
-      PickerDateRange(DateTime.now().subtract(Duration(days: 4)),
-          DateTime.now().add(Duration(days: 4))),
-      PickerDateRange(DateTime.now().add(Duration(days: 11)),
-          DateTime.now().add(Duration(days: 16)))
+      PickerDateRange(DateTime.now().subtract(const Duration(days: 4)),
+          DateTime.now().add(const Duration(days: 4))),
+      PickerDateRange(DateTime.now().add(const Duration(days: 11)),
+          DateTime.now().add(const Duration(days: 16)))
     ];
     super.initState();
   }
